@@ -127,11 +127,13 @@ Cache::config('default', array('engine' => 'File'));
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
  * string is passed to the inflection functions
- *
- * Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
- * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
- *
- */
+
+Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
+*/
+Inflector::rules('plural', array('rules' => array(), 'irregular' => array('universidad'=>'universidades',
+																			'pais'=>'paises',
+																			'disponibilidad'=>'disponibilidades'), 'uninflected' => array()));
+
 
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
