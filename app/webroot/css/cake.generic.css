@@ -30,7 +30,7 @@ body {
 	margin: 0;
 }
 a {
-	color: #003d4c;
+	color: white;
 	text-decoration: underline;
 	font-weight: bold;
 }
@@ -82,7 +82,7 @@ p {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	background: #003d4c;
 	color: #fff;
 	padding: 0px 30px;
 }
