@@ -39,7 +39,7 @@
 		<td><?php echo h($universidad['Universidad']['created']); ?>&nbsp;</td>
 		<td><?php echo h($universidad['Universidad']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $universidad['Universidad']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver Detalle'), array('action' => 'view', $universidad['Universidad']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $universidad['Universidad']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $universidad['Universidad']['id']), null, __('Are you sure you want to delete # %s?', $universidad['Universidad']['id'])); ?>
 		</td>
