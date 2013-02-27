@@ -21,6 +21,7 @@
 
 App::uses('AppController', 'Controller');
 
+
 /**
  * Static content controller
  *
@@ -43,7 +44,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Universidad');
 
 /**
  * Displays a view
@@ -51,7 +52,7 @@ class PagesController extends AppController {
  * @param mixed What page to display
  * @return void
  */
-	public function display() {
+	/*public function display() {
 		$path = func_get_args();
 
 		$count = count($path);
@@ -71,5 +72,25 @@ class PagesController extends AppController {
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
+	}*/
+
+	/**
+ * home method
+ *
+ * @return void
+ */
+	public function home() {
+		
+	}
+
+		/**
+ * listado method
+ *
+ * @return void
+ */
+	public function listado_universidades() {
+		$this->Universidad->recursive = 0;
+		$this->set('universidades', $this->paginate());
+		
 	}
 }
