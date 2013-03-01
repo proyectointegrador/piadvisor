@@ -72,6 +72,8 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Paises'), array('controller' => 'paises', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Pais'), array('controller' => 'paises', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Carrera'), array('controller' => 'carreras', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Requisito'), array('controller' => 'requisitos', 'action' => 'add')); ?> </li>
 	</ul>

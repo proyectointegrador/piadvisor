@@ -48,8 +48,7 @@ class CarrerasController extends AppController {
 			}
 		}
 		$areas = $this->Carrera->Area->find('list');
-		$universidades = $this->Carrera->Universidad->find('list');
-		$this->set(compact('areas', 'universidades'));
+		$this->set(compact('areas'));
 	}
 
 /**
@@ -75,8 +74,7 @@ class CarrerasController extends AppController {
 			$this->request->data = $this->Carrera->find('first', $options);
 		}
 		$areas = $this->Carrera->Area->find('list');
-		$universidades = $this->Carrera->Universidad->find('list');
-		$this->set(compact('areas', 'universidades'));
+		$this->set(compact('areas'));
 	}
 
 /**

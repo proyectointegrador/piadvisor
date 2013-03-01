@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Demanda $Demanda
  * @property User $User
  * @property Pais $Pais
+ * @property Carrera $Carrera
  * @property Requisito $Requisito
  */
 class Universidad extends AppModel {
@@ -63,6 +64,21 @@ class Universidad extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
+		'Carrera' => array(
+			'className' => 'Carrera',
+			'joinTable' => 'universidades_carreras',
+			'foreignKey' => 'universidad_id',
+			'associationForeignKey' => 'carrera_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
 		'Requisito' => array(
 			'className' => 'Requisito',
 			'joinTable' => 'universidades_requisitos',

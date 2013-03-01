@@ -4,7 +4,6 @@ App::uses('AppModel', 'Model');
  * Carrera Model
  *
  * @property Area $Area
- * @property Universidad $Universidad
  */
 class Carrera extends AppModel {
 
@@ -32,28 +31,4 @@ class Carrera extends AppModel {
 			'order' => ''
 		)
 	);
-
-/**
- * hasAndBelongsToMany associations
- *
- * @var array
- */
-	public $hasAndBelongsToMany = array(
-		'Universidad' => array(
-			'className' => 'Universidad',
-			'joinTable' => 'carreras_universidades',
-			'foreignKey' => 'carrera_id',
-			'associationForeignKey' => 'universidad_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
-
 }

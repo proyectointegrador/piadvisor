@@ -78,9 +78,46 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Paises'), array('controller' => 'paises', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Pais'), array('controller' => 'paises', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Carrera'), array('controller' => 'carreras', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Requisito'), array('controller' => 'requisitos', 'action' => 'add')); ?> </li>
 	</ul>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Carreras'); ?></h3>
+	<?php if (!empty($universidad['Carrera'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Name2'); ?></th>
+		<th><?php echo __('Area Id'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($universidad['Carrera'] as $carrera): ?>
+		<tr>
+			<td><?php echo $carrera['id']; ?></td>
+			<td><?php echo $carrera['name']; ?></td>
+			<td><?php echo $carrera['name2']; ?></td>
+			<td><?php echo $carrera['area_id']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'carreras', 'action' => 'view', $carrera['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'carreras', 'action' => 'edit', $carrera['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'carreras', 'action' => 'delete', $carrera['id']), null, __('Are you sure you want to delete # %s?', $carrera['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Carrera'), array('controller' => 'carreras', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Requisitos'); ?></h3>
@@ -93,7 +130,7 @@
 		<th><?php echo __('Descripcion'); ?></th>
 		<th><?php echo __('Descripcion2'); ?></th>
 		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modifed'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -106,7 +143,7 @@
 			<td><?php echo $requisito['descripcion']; ?></td>
 			<td><?php echo $requisito['descripcion2']; ?></td>
 			<td><?php echo $requisito['created']; ?></td>
-			<td><?php echo $requisito['modifed']; ?></td>
+			<td><?php echo $requisito['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'requisitos', 'action' => 'view', $requisito['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'requisitos', 'action' => 'edit', $requisito['id'])); ?>

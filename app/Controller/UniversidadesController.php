@@ -51,8 +51,9 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
+		$carreras = $this->Universidad->Carrera->find('list');
 		$requisitos = $this->Universidad->Requisito->find('list');
-		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'requisitos'));
+		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
 
 /**
@@ -81,8 +82,9 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
+		$carreras = $this->Universidad->Carrera->find('list');
 		$requisitos = $this->Universidad->Requisito->find('list');
-		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'requisitos'));
+		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
 
 /**
