@@ -44,7 +44,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Universidad');
+	public $uses = array('Universidad','Carrera', 'Pais');
 
 /**
  * Displays a view
@@ -81,6 +81,11 @@ class PagesController extends AppController {
  */
 	public function home() {
 		
+		$this->Carrera->recursive = 0;
+		$carreras = $this->Carrera->find('list');
+		$paises = $this->Pais->find('list');
+		$this->set(compact('carreras','paises'));
+		$this->set('title_for_layout', 'PIAdvisor');
 	}
 
 		/**
@@ -88,9 +93,14 @@ class PagesController extends AppController {
  *
  * @return void
  */
-	public function listado_universidades() {
-		$this->Universidad->recursive = 0;
-		$this->set('universidades', $this->paginate());
+	public function listado_universidades($datos = array()) {
+		if ($this->request->is('post')) {
+			$datos = $this->request->data;
+			debug($datos);
+			$this->Universidad->recursive = 0;
+			$this->set('universidades', $this->paginate());
+		}
+		
 		
 	}
 }
