@@ -23,7 +23,12 @@ $continentes = array (
 	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 	echo $this->Form->input('pais_id',array('empty'=>'----'));
   ?>
-<?php echo $this->Form->end(__('Submit')); ?>
+
+        <button class="btn btn-large btn-primary" type="submit">Buscar</button>
+
+
+<?php echo $this->Form->end();
+ ?>
       </div>
 
     </div> <!-- /container -->

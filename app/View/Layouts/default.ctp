@@ -80,13 +80,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Intercambio Internacional</a>
+          <a class="brand" href="<?php echo $this->webroot;?>">Intercambio Internacional</a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Preferencias</a></li>
-              <li><a href="#about">Listado de Universidades</a></li>
-              <li><a href="#contact">Descripción</a></li>
-            </ul>
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
