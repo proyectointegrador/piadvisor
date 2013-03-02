@@ -93,13 +93,53 @@ class PagesController extends AppController {
  *
  * @return void
  */
-	public function listado_universidades($datos = array()) {
+	public function listado_universidades() {
 		if ($this->request->is('post')) {
 			$datos = $this->request->data;
 			debug($datos);
+			$continentes = array (
+			'1' => 'África',
+			'2' => 'América',
+			'3' => 'Asia',
+			'4' => 'Europa',
+			'5' => 'Oceania'
+			);
+
+			
+			/** Generacion de query de filtrado */
+			$pais = $datos['Page']['pais_id'];
+			$continente = $datos['Page']['continente_id'];
+			$carrera =  $datos['Page']['carrera_id'];
+			$joins = array();
+			$condiciones = array();
+			if($pais != ''){
+			$condiciones['pais_id']=$pais;
+			}
+			if($continente != ''){
+			$condiciones['Pais.continente']=$continentes[$continente];
+			}
+			if($carrera != ''){
+			$joins = array ( 
+				array('table' => 'universidades_carreras',
+                'alias' => 'universidadcarrera',
+                'type' => 'INNER',
+                'conditions' => array(
+                    'universidadcarrera.carrera_id' => $carrera,
+                    'universidadcarrera.universidad_id = Universidad.id'
+                )
+				)
+				);
+			}
+		
 			$this->Universidad->recursive = 0;
-			$this->set('universidades', $this->paginate());
-		}
+			$universidades = $this->Universidad->find('all',array
+			('conditions'=>$condiciones,
+			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.id'),
+			'joins' => $joins,
+			'group' => 'Universidad.id'
+				));
+				$this->set(compact('universidades'));
+			}
 		
 		
 	}
