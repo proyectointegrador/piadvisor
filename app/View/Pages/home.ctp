@@ -21,8 +21,26 @@ $continentes = array (
 <?php
 	echo $this->Form->input('carrera_id',array('empty'=>'----'));
 	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
+?>
+<?php
+	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
+				array('controller' => 'pages', 'action' => 'paisajax'), 
+				array( 
+				'update' => '#paisajax',
+				'async' => true, 
+				'dataExpression' => true, 
+				'method' => 'post', 
+				'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
+				) ) );
+?>
+<div id="paisajax">
+<?php
+
 	echo $this->Form->input('pais_id',array('empty'=>'----'));
   ?>
+
+</div>
+
 
         <button class="btn btn-large btn-primary" type="submit">Buscar</button>
 

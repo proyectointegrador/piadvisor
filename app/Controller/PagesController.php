@@ -46,6 +46,11 @@ class PagesController extends AppController {
  */
 	public $uses = array('Universidad','Carrera', 'Pais');
 
+	
+
+	var $helpers = array('Js', 'Html');
+	var $components = array('RequestHandler');
+
 /**
  * Displays a view
  *
@@ -97,6 +102,7 @@ class PagesController extends AppController {
 		if ($this->request->is('post')) {
 			$datos = $this->request->data;
 			debug($datos);
+
 			$continentes = array (
 			'1' => 'África',
 			'2' => 'América',
@@ -104,7 +110,6 @@ class PagesController extends AppController {
 			'4' => 'Europa',
 			'5' => 'Oceania'
 			);
-
 			
 			/** Generacion de query de filtrado */
 			$pais = $datos['Page']['pais_id'];
@@ -141,6 +146,36 @@ class PagesController extends AppController {
 				$this->set(compact('universidades'));
 			}
 		
+		
+	}
+
+	/*
+	AJAX
+	*/
+	/* Funcion que maneja la peticion ajax de os paise segun el continente
+	 * Seleccionado.
+	 *
+	 * @return void
+	 */
+	public function paisajax(){
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if($this->RequestHandler->isAjax()){
+				$continentes = array (
+					'1' => 'África',
+					'2' => 'América',
+					'3' => 'Asia',
+					'4' => 'Europa',
+					'5' => 'Oceania'
+					);
+				$continente_id = $this->request->data['Page']['continente_id'];
+				$this->Pais->recursive= -1;
+				$paises = $this->Pais->find('list',array(
+					'conditions'=>array('continente'=>$continentes[$continente_id])));
+				$this->set(compact('paises'));
+				$this->render('paisajax', 'ajax');
+			}
+		}
 		
 	}
 }
