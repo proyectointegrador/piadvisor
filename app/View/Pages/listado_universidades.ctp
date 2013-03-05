@@ -1,10 +1,26 @@
-<div class="universidades index">
-	<h2><?php echo __('Universidades'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+            </br>
+
+           <div class="navbar">
+
+              <div class="navbar-inner">
+  <div class="input-append">
+  <input class="span2" id="appendedInputButton" type="text">
+  <button class="btn" type="button">Go!</button>
+</div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+	<table class="table table-bordered" >
 	<tr>
-			<th><?php echo _('codigo'); ?></th>
-			<th><?php echo _('name'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th><?php echo _('Codigo'); ?></th>
+			<th><?php echo _('Universidad'); ?></th>
+			<th><?php echo _('Detalle'); ?></th>
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
 	<tr>
@@ -16,5 +32,5 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
-</div>
+
 
