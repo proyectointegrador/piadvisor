@@ -158,6 +158,9 @@ class PagesController extends AppController {
 	 * @return void
 	 */
 	public function paisajax(){
+		$hola ="hola";
+		debug($hola);
+		exit();
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
 			if($this->RequestHandler->isAjax()){

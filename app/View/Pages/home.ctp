@@ -23,7 +23,9 @@ $continentes = array (
 	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 ?>
 <?php
-	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
+	$this->Js->get('#PageContinenteId')->event('click', 'alert("whoa!");', false);
+
+	/*$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
 				array('controller' => 'pages', 'action' => 'paisajax'), 
 				array( 
 				'update' => '#paisajax',
@@ -31,7 +33,7 @@ $continentes = array (
 				'dataExpression' => true, 
 				'method' => 'post', 
 				'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
-				) ) );
+				) ) );*/
 ?>
 <div id="paisajax">
 <?php
