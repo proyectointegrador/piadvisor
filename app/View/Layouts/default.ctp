@@ -11,7 +11,7 @@
 
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
@@ -30,7 +30,6 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
       <style type="text/css">
       body {
         padding-top: 40px;

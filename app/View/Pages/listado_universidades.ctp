@@ -3,15 +3,21 @@
            <div class="navbar">
 
               <div class="navbar-inner">
-  <div class="input-append">
-  <input class="span2" id="appendedInputButton" type="text">
-  <button class="btn" type="button">Go!</button>
+  <div class="input-append" style="text-align:right;">
+  <input  type="text" class="input-block-level" id="appendedInputButton" style="text-align:right;" >
+  <button class="btn" type="button" style="text-align:right;">Filtrar</button>
 </div>
               </div>
             </div>
 
 
 
+<div class="row">
+  <div class="span9">
+    hello
+    
+  </div>
+</div>
 
 
 
