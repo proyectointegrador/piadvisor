@@ -33,7 +33,7 @@
 		<td><?php echo h($universidad['Universidad']['codigo']); ?>&nbsp;</td>
 		<td><?php echo h($universidad['Universidad']['name']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver Detalle'), array('action' => 'view', $universidad['Universidad']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver Detalle'), array('action' => 'ver_universidad', $universidad['Universidad']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
