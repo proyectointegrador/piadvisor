@@ -149,6 +149,20 @@ class PagesController extends AppController {
 		
 	}
 
+	/**
+	 * ver_universidad method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function ver_universidad($id = null) {
+		if (!$this->Universidad->exists($id)) {
+			throw new NotFoundException(__('Invalid universidad'));
+		}
+		$options = array('conditions' => array('Universidad.' . $this->Universidad->primaryKey => $id));
+		$this->set('universidad', $this->Universidad->find('first', $options));
+	}
 	/*
 	AJAX
 	*/
