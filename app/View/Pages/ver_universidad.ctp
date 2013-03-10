@@ -1,55 +1,66 @@
-<div class="universidades view">
-<h2><?php  echo __('Universidad'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Codigo'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['codigo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nombre'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ciudad'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['ciudad']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Calendario'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['calendario']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Disponibilidad'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($universidad['Disponibilidad']['name'], array('controller' => 'disponibilidades', 'action' => 'view', $universidad['Disponibilidad']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Demanda'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($universidad['Demanda']['name'], array('controller' => 'demandas', 'action' => 'view', $universidad['Demanda']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Website'); ?></dt>
-		<dd>
-			<?php echo h($universidad['Universidad']['website']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Pais'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($universidad['Pais']['name'], array('controller' => 'paises', 'action' => 'view', $universidad['Pais']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+  	<h3>		<?php echo h($universidad['Universidad']['name']); ?></h3>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+      <img src="/img/ES.jpg" class="img-rounded">
+
+    </div>
+    <div class="span10">
+      <!--Body content-->
+      <?php echo __('Codigo'); ?>: &nbsp;<?php echo h($universidad['Universidad']['codigo']); ?></br>
+      <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo $this->Html->link($universidad['Pais']['name'], array('controller' => 'paises', 'action' => 'view', $universidad['Pais']['id'])); ?></br>
+			
+      <?php echo __('Calendario'); ?>: &nbsp;<?php echo h($universidad['Universidad']['calendario']); ?></br>
+      <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Disponibilidad']['name'], array('controller' => 'disponibilidades', 'action' => 'view', $universidad['Disponibilidad']['id'])); ?></br>
+       <?php echo __('Demanda'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Demanda']['name'], array('controller' => 'demandas', 'action' => 'view', $universidad['Demanda']['id'])); ?></br>
+      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],$universidad['Universidad']['website']); ?></br>
+
+ 
+
+    </div>
+  </div>
 </div>
+</br>
+
+
+
 <div class="related">
-	<h3><?php echo __('Carreras Relacionadas'); ?></h3>
+	<h3><?php echo __('Requisitos'); ?></h3>
+	<?php if (!empty($universidad['Requisito'])): ?>
+
+
+   <div class="container-fluid">  
+     <div class="accordion" id="accordion2">  
+	<?php
+		$i = 0;
+		foreach ($universidad['Requisito'] as $requisito): ?>            
+
+            <div class="accordion-group">  
+              <div class="accordion-heading">  
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?php echo $requisito['clave']; ?>">  
+                 <?php echo $requisito['clave']; ?>: <?php echo $requisito['Categoria']['name']; ?>  
+                </a>  
+              </div>  
+              <div id="<?php echo $requisito['clave']; ?>" class="accordion-body collapse">  
+                <div class="accordion-inner">  
+                  <?php echo $requisito['descripcion']; ?> 
+                </div>  
+              </div>  
+            </div>  
+              	<?php endforeach; ?>
+
+            </div>  
+          </div>  
+    </div> 
+		
+<?php endif; ?>
+
+</div>
+
+<div class="related">
+	<h3><?php echo __('Carreras ofrecidas en la Universidad'); ?></h3>
 	<?php if (!empty($universidad['Carrera'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -68,26 +79,4 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-</div>
-<div class="related">
-	<h3><?php echo __('Requisitos'); ?></h3>
-	<?php if (!empty($universidad['Requisito'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Categoria Id'); ?></th>
-		<th><?php echo __('Clave'); ?></th>
-		<th><?php echo __('Descripcion'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($universidad['Requisito'] as $requisito): ?>
-		<tr>
-			<td><?php echo $requisito['Categoria']['name']; ?></td>
-			<td><?php echo $requisito['clave']; ?></td>
-			<td><?php echo $requisito['descripcion']; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
 </div>
