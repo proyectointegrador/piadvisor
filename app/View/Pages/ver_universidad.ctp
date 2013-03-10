@@ -4,18 +4,21 @@
   <div class="row-fluid">
     <div class="span2">
       <!--Sidebar content-->
-      <img src="/img/ES.jpg" class="img-rounded">
+      <?php
+        echo $this->Html->image('ES.jpg', array('class'=>'img-rounded'));
+      ?>
 
     </div>
     <div class="span10">
       <!--Body content-->
       <?php echo __('Codigo'); ?>: &nbsp;<?php echo h($universidad['Universidad']['codigo']); ?></br>
-      <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo $this->Html->link($universidad['Pais']['name'], array('controller' => 'paises', 'action' => 'view', $universidad['Pais']['id'])); ?></br>
+      <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo h($universidad['Pais']['name']); ?></br>
 			
       <?php echo __('Calendario'); ?>: &nbsp;<?php echo h($universidad['Universidad']['calendario']); ?></br>
-      <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Disponibilidad']['name'], array('controller' => 'disponibilidades', 'action' => 'view', $universidad['Disponibilidad']['id'])); ?></br>
-       <?php echo __('Demanda'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Demanda']['name'], array('controller' => 'demandas', 'action' => 'view', $universidad['Demanda']['id'])); ?></br>
-      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],$universidad['Universidad']['website']); ?></br>
+      <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo h($universidad['Disponibilidad']['name']); ?></br>
+       <?php echo __('Demanda'); ?>: &nbsp;<?php echo h($universidad['Demanda']['name']); ?>
+     </br>
+      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
 
  
 
