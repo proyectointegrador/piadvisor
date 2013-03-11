@@ -67,7 +67,7 @@
 	<?php if (!empty($universidad['Carrera'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Siglas'); ?></th>
+		<th><?php echo __('Carrera'); ?></th>
 		<th><?php echo __('Nombre'); ?></th>
 		<th><?php echo __('Area'); ?></th>
 	</tr>
