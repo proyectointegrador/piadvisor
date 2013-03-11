@@ -13,6 +13,7 @@
       <!--Body content-->
       <?php echo __('Codigo'); ?>: &nbsp;<?php echo h($universidad['Universidad']['codigo']); ?></br>
       <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo h($universidad['Pais']['name']); ?></br>
+      <?php echo __('Requisitos de Idioma'); ?>: &nbsp;<?php echo h($universidad['Universidad']['idioma']); ?></br>
 			
       <?php echo __('Calendario'); ?>: &nbsp;<?php echo h($universidad['Universidad']['calendario']); ?></br>
       <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo h($universidad['Disponibilidad']['name']); ?></br>
