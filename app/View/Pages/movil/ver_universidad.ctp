@@ -6,7 +6,7 @@
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres
  *
- * Descripción: Esta es la vista del detalle de universidad.
+ * Descripción: Esta es la vista del detalle de universidad verison movil.
  */
 ?>
   	<h3>		<?php echo h($universidad['Universidad']['name']); ?></h3>

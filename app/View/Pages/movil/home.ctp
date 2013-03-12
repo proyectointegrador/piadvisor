@@ -6,9 +6,10 @@
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres
  *
- * Descripción: Esta es la vista inicial del sistema.
+ * Descripción: Esta es la vista inicial del sistema version movil.
  */
 ?>
+
 <?php
 
 $continentes = array (

@@ -108,7 +108,7 @@ class PagesController extends AppController {
 			'2' => 'América',
 			'3' => 'Asia',
 			'4' => 'Europa',
-			'5' => 'Oceania'
+			'5' => 'Oceanía'
 			);
 			
 			/** Generacion de query de filtrado */

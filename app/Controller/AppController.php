@@ -22,6 +22,8 @@
 
 App::uses('Controller', 'Controller');
 
+
+
 /**
  * Application Controller
  *
@@ -32,4 +34,21 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	var $components = array('RequestHandler');
+
+	function beforeFilter() {
+     if ($this->RequestHandler->isMobile()) {
+        	$path = APP.'View/' . $this->name . DS . 'movil/' . $this->action . '.ctp';
+        	if (file_exists($path)) {
+        		$this->layout = 'movil';
+        		$vistapath= $this->name . '/movil';
+        		$this->viewPath = $vistapath;
+        	}
+     }
+	}
+
+	function afterFilter() {
+        
+     }
 }
