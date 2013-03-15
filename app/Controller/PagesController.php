@@ -139,7 +139,7 @@ class PagesController extends AppController {
 			$this->Universidad->recursive = 0;
 			$universidades = $this->Universidad->find('all',array
 			('conditions'=>$condiciones,
-			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.id'),
+			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.id'),
 			'joins' => $joins,
 			'group' => 'Universidad.id'
 				));

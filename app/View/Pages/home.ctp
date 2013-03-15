@@ -51,11 +51,15 @@ $continentes = array (
 
 	echo $this->Form->input('pais_id',array('empty'=>'----'));
   ?>
-
-
+  
 
 
         <button class="btn btn-large btn-primary" type="submit">Buscar</button>
+		
+		
+<div style="color: gray;">
+  <p>Nota: Puedes buscar seleccionando una carrera y/o continente y/o país.</p>
+</div>
 
 
 <?php echo $this->Form->end();
