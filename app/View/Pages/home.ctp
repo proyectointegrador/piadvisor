@@ -33,8 +33,9 @@ $continentes = array (
 	echo $this->Form->input('carrera_id',array('empty'=>'----'));
 	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 ?>
+
 <?php
-	/*$this->Js->get('#PageContinenteId')->event('click', 'alert("whoa!");', false);
+	//$this->Js->get('#PageContinenteId')->event('click', 'alert("whoa!");', false);
 
 	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
 				array('controller' => 'pages', 'action' => 'paisajax'), 
@@ -44,14 +45,15 @@ $continentes = array (
 				'dataExpression' => true, 
 				'method' => 'post', 
 				'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
-				) ) );*/
+				) ) );
 ?>
 
-<?php
+<div id="paisajax" class="pais_content">
+	<?php
 
-	echo $this->Form->input('pais_id',array('empty'=>'----'));
-  ?>
-  
+		echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
+	  ?>
+ </div>
 
 
         <button class="btn btn-large btn-primary" type="submit">Buscar</button>
@@ -68,6 +70,9 @@ $continentes = array (
 
     </div> <!-- /container -->
 
+<?php
+  echo $this->Js->writeBuffer();
+?>
 
 
 

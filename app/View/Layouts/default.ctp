@@ -23,13 +23,17 @@
 		echo $this->Html->meta(array("name"=>"viewport",
       "content"=>"width=device-width,  initial-scale=1.0"));
 
+
+    //Importaciónde Hojas de Estilo
 		echo $this->Html->css('cake.generic');
-	    echo $this->Html->css('bootstrap.min');
-   // <script src="js/bootstrap.min.js"></script>
-//echo $this->Html->script('bootstrap'); // Include jQuery library
+    echo $this->Html->css('piadvisor');
+	  echo $this->Html->css('bootstrap.min');
 
-echo $this->Html->script('bootstrap.min'); // Include jQuery library
-
+    // <script src="js/bootstrap.min.js"></script>
+    //echo $this->Html->script('bootstrap'); // Include jQuery library
+    //Importacion de Javascripts
+    echo $this->Html->script('bootstrap.min'); 
+    echo $this->Html->script('jquery-1.9.1.min');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

@@ -1,22 +1,12 @@
 <?php
 /**
- * Static content controller.
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
  *
- * This file will render views from views/pages/
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * Descripción: Controlador de la parte pública de la aplicación.
  */
 
 App::uses('AppController', 'Controller');
@@ -174,9 +164,6 @@ class PagesController extends AppController {
 	 * @return void
 	 */
 	public function paisajax(){
-		$hola ="hola";
-		debug($hola);
-		exit();
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
 			if($this->RequestHandler->isAjax()){

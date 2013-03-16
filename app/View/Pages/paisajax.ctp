@@ -1,4 +1,4 @@
 <?php 
-echo $this->Form->input('pais_id',array('empty'=>'----'));
+echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
 
 ?>
