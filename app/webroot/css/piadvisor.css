@@ -10,3 +10,13 @@
 div.pais_content{
 	padding: 0px;
 }
+.forma div {
+	clear: none;
+	margin: 5px;
+	padding: .5em;
+	vertical-align: text-top;
+}
+.forma label {
+	text-align: left;
+	cursor: default;
+}	

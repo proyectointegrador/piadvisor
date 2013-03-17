@@ -181,3 +181,14 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+//Variables de entorno
+Configure::write(
+    'Continentes',array (
+		'1' => 'África',
+		'2' => 'América',
+		'3' => 'Asia',
+		'4' => 'Europa',
+		'5' => 'Oceanía'
+		)
+);

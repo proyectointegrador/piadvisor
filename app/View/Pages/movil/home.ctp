@@ -6,19 +6,12 @@
  *  Luis Galeana Peralta
  *  Luis Eduardo Torres
  *
- * Descripción: Esta es la vista inicial del sistema version movil.
+ * Descripción: Esta es la vista inicial del sistema.
  */
 ?>
-
 <?php
 
-$continentes = array (
-	'1' => 'África',
-	'2' => 'América',
-	'3' => 'Asia',
-	'4' => 'Europa',
-	'5' => 'Oceanía'
-	);
+$continentes = Configure::read('Continentes');
 
 ?>
 <?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
@@ -34,8 +27,8 @@ $continentes = array (
 	echo $this->Form->input('carrera_id',array('empty'=>'----'));
 	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 ?>
+
 <?php
-	/*$this->Js->get('#PageContinenteId')->event('click', 'alert("whoa!");', false);
 
 	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
 				array('controller' => 'pages', 'action' => 'paisajax'), 
@@ -45,18 +38,23 @@ $continentes = array (
 				'dataExpression' => true, 
 				'method' => 'post', 
 				'data' => $this->Js->serializeForm(array('isForm' => true, 'inline' => true))
-				) ) );*/
+				) ) );
 ?>
 
-<?php
+<div id="paisajax" class="pais_content">
+	<?php
 
-	echo $this->Form->input('pais_id',array('empty'=>'----'));
-  ?>
-
-
+		echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
+	  ?>
+ </div>
 
 
         <button class="btn btn-large btn-primary" type="submit">Buscar</button>
+		
+		
+<div style="color: gray;">
+  <p>Nota: Puedes buscar seleccionando una carrera y/o continente y/o país.</p>
+</div>
 
 
 <?php echo $this->Form->end();
@@ -65,6 +63,9 @@ $continentes = array (
 
     </div> <!-- /container -->
 
+<?php
+  echo $this->Js->writeBuffer();
+?>
 
 
 

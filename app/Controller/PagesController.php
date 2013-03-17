@@ -93,13 +93,8 @@ class PagesController extends AppController {
 			$datos = $this->request->data;
 			debug($datos);
 
-			$continentes = array (
-			'1' => 'África',
-			'2' => 'América',
-			'3' => 'Asia',
-			'4' => 'Europa',
-			'5' => 'Oceanía'
-			);
+
+			$continentes = Configure::read('Continentes');
 			
 			/** Generacion de query de filtrado */
 			$pais = $datos['Page']['pais_id'];
@@ -107,23 +102,24 @@ class PagesController extends AppController {
 			$carrera =  $datos['Page']['carrera_id'];
 			$joins = array();
 			$condiciones = array();
+			//Condiciones para el query
 			if($pais != ''){
-			$condiciones['pais_id']=$pais;
+				$condiciones['pais_id']=$pais;
 			}
 			if($continente != ''){
-			$condiciones['Pais.continente']=$continentes[$continente];
+				$condiciones['Pais.continente']=$continentes[$continente];
 			}
 			if($carrera != ''){
-			$joins = array ( 
-				array('table' => 'universidades_carreras',
-                'alias' => 'universidadcarrera',
-                'type' => 'INNER',
-                'conditions' => array(
-                    'universidadcarrera.carrera_id' => $carrera,
-                    'universidadcarrera.universidad_id = Universidad.id'
-                )
-				)
-				);
+				$joins = array ( 
+					array('table' => 'universidades_carreras',
+	                'alias' => 'universidadcarrera',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'universidadcarrera.carrera_id' => $carrera,
+	                    'universidadcarrera.universidad_id = Universidad.id'
+	                )
+					)
+					);
 			}
 		
 			$this->Universidad->recursive = 0;
@@ -134,9 +130,18 @@ class PagesController extends AppController {
 			'group' => 'Universidad.id'
 				));
 				$this->set(compact('universidades'));
-			}
-		
-		
+
+			
+		}
+			
+		//Query de paises y carreras
+		$this->Carrera->recursive = 0;
+		$carreras = $this->Carrera->find('list');
+		$paises = $this->Pais->find('list');
+		$this->set(compact('carreras','paises'));
+		$this->set('title_for_layout', 'PIAdvisor');
+
+				
 	}
 
 	/**
@@ -167,19 +172,67 @@ class PagesController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
 			if($this->RequestHandler->isAjax()){
-				$continentes = array (
-					'1' => 'África',
-					'2' => 'América',
-					'3' => 'Asia',
-					'4' => 'Europa',
-					'5' => 'Oceania'
-					);
+				$continentes = Configure::read('Continentes');
+
 				$continente_id = $this->request->data['Page']['continente_id'];
 				$this->Pais->recursive= -1;
 				$paises = $this->Pais->find('list',array(
 					'conditions'=>array('continente'=>$continentes[$continente_id])));
 				$this->set(compact('paises'));
 				$this->render('paisajax', 'ajax');
+			}
+		}
+		
+	}
+	/* Funcion que maneja la peticion ajax de busqueda redifinida.
+	 *
+	 * @return void
+	 */
+	public function listadoajax(){
+		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			if($this->RequestHandler->isAjax()){
+				$datos = $this->request->data;
+				debug($datos);
+				$continentes = Configure::read('Continentes');
+			
+			/** Generacion de query de filtrado */
+			$pais = $datos['Page']['pais_id'];
+			$continente = $datos['Page']['continente_id'];
+			$carrera =  $datos['Page']['carrera_id'];
+			$joins = array();
+			$condiciones = array();
+			//Condiciones para el query
+			if($pais != ''){
+				$condiciones['pais_id']=$pais;
+			}
+			if($continente != ''){
+				$condiciones['Pais.continente']=$continentes[$continente];
+			}
+			if($carrera != ''){
+				$joins = array ( 
+					array('table' => 'universidades_carreras',
+	                'alias' => 'universidadcarrera',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'universidadcarrera.carrera_id' => $carrera,
+	                    'universidadcarrera.universidad_id = Universidad.id'
+	                )
+					)
+					);
+			}
+		
+			$this->Universidad->recursive = 0;
+			$universidades = $this->Universidad->find('all',array
+			('conditions'=>$condiciones,
+			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.id'),
+			'joins' => $joins,
+			'group' => 'Universidad.id'
+				));
+				$this->set(compact('universidades'));
+
+			
+				$this->render('listadoajax', 'ajax');
 			}
 		}
 		

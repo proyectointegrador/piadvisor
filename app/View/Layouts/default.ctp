@@ -28,11 +28,13 @@
 		echo $this->Html->css('cake.generic');
     echo $this->Html->css('piadvisor');
 	  echo $this->Html->css('bootstrap.min');
+    echo $this->Html->css('elastic');
 
     // <script src="js/bootstrap.min.js"></script>
     //echo $this->Html->script('bootstrap'); // Include jQuery library
     //Importacion de Javascripts
     echo $this->Html->script('bootstrap.min'); 
+    echo $this->Html->script('elastic'); 
     echo $this->Html->script('jquery-1.9.1.min');
 
 		echo $this->fetch('meta');

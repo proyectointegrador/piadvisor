@@ -11,13 +11,7 @@
 ?>
 <?php
 
-$continentes = array (
-	'1' => 'África',
-	'2' => 'América',
-	'3' => 'Asia',
-	'4' => 'Europa',
-	'5' => 'Oceanía'
-	);
+$continentes = Configure::read('Continentes');
 
 ?>
 <?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
@@ -35,7 +29,6 @@ $continentes = array (
 ?>
 
 <?php
-	//$this->Js->get('#PageContinenteId')->event('click', 'alert("whoa!");', false);
 
 	$this->Js->get('#PageContinenteId')->event('change', $this->Js->request( 
 				array('controller' => 'pages', 'action' => 'paisajax'), 
