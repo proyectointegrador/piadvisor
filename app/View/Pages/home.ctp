@@ -44,7 +44,7 @@ $continentes = Configure::read('Continentes');
 <div id="paisajax" class="pais_content">
 	<?php
 
-		echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
+		echo $this->Form->input('Page.pais_id',array('empty'=>'----','label'=>'País'));
 	  ?>
  </div>
 

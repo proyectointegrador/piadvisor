@@ -202,41 +202,53 @@ class PagesController extends AppController {
 				debug($datos);
 				$continentes = Configure::read('Continentes');
 			
-			/** Generacion de query de filtrado */
-			$pais = $datos['Page']['pais_id'];
-			$continente = $datos['Page']['continente_id'];
-			$carrera =  $datos['Page']['carrera_id'];
-			$joins = array();
-			$condiciones = array();
-			//Condiciones para el query
-			if($pais != ''){
-				$condiciones['pais_id']=$pais;
-			}
-			if($continente != ''){
-				$condiciones['Pais.continente']=$continentes[$continente];
-			}
-			if($carrera != ''){
-				$joins = array ( 
-					array('table' => 'universidades_carreras',
-	                'alias' => 'universidadcarrera',
-	                'type' => 'INNER',
-	                'conditions' => array(
-	                    'universidadcarrera.carrera_id' => $carrera,
-	                    'universidadcarrera.universidad_id = Universidad.id'
-	                )
-					)
-					);
-			}
-		
-			$this->Universidad->recursive = 0;
-			$universidades = $this->Universidad->find('all',array
-			('conditions'=>$condiciones,
-			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.id'),
-			'joins' => $joins,
-			'group' => 'Universidad.id'
-				));
+				/** Generacion de query de filtrado */
+				$pais = $datos['Page']['pais_id'];
+				$continente = $datos['Page']['continente_id'];
+				$carrera =  $datos['Page']['carrera_id'];
+				$name = $datos['Page']['name'];
+
+				$joins = array();
+				$condiciones = array();
+				//Condiciones para el query
+				if($pais != ''){
+					$condiciones['pais_id']=$pais;
+				}
+				if($continente != ''){
+					$condiciones['Pais.continente']=$continentes[$continente];
+				}
+				if($name != ''){
+					$condiciones['name']="'".$name."'";
+				}
+				if($carrera != ''){
+					$joins = array ( 
+						array('table' => 'universidades_carreras',
+		                'alias' => 'universidadcarrera',
+		                'type' => 'INNER',
+		                'conditions' => array(
+		                    'universidadcarrera.carrera_id' => $carrera,
+		                    'universidadcarrera.universidad_id = Universidad.id'
+		                )
+						)
+						);
+				}
+				
+				debug($condiciones);
+				
+
+
+				$this->Universidad->recursive = 0;
+				$universidades = $this->Universidad->find('all',array
+				('conditions'=>$condiciones,
+				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.id'),
+				'joins' => $joins,
+				'group' => 'Universidad.id'
+					));
+				debug($universidades);
+				exit();
 				$this->set(compact('universidades'));
 
+				
 			
 				$this->render('listadoajax', 'ajax');
 			}
