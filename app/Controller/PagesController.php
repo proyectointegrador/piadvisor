@@ -218,7 +218,7 @@ class PagesController extends AppController {
 					$condiciones['Pais.continente']=$continentes[$continente];
 				}
 				if($name != ''){
-					$condiciones['name']="'".$name."'";
+					$condiciones['Universidad.name LIKE']="%$name%";
 				}
 				if($carrera != ''){
 					$joins = array ( 
@@ -232,8 +232,9 @@ class PagesController extends AppController {
 						)
 						);
 				}
+
 				
-				debug($condiciones);
+				
 				
 
 
@@ -244,8 +245,7 @@ class PagesController extends AppController {
 				'joins' => $joins,
 				'group' => 'Universidad.id'
 					));
-				debug($universidades);
-				exit();
+				
 				$this->set(compact('universidades'));
 
 				
