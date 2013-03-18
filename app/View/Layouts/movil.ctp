@@ -20,11 +20,18 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
+
+
+
 		echo $this->Html->meta(array("name"=>"viewport",
       "content"=>"width=device-width,  initial-scale=1.0"));
 
-		echo $this->Html->css('cake.generic');
+//		echo $this->Html->css('cake.generic');
 	    echo $this->Html->css('bootstrap.min');
+      echo $this->Html->css('bootstrap-responsive.min');
+
+
+
    // <script src="js/bootstrap.min.js"></script>
 //echo $this->Html->script('bootstrap'); // Include jQuery library
 
@@ -37,17 +44,18 @@ echo $this->Html->script('bootstrap.min'); // Include jQuery library
 	?>
       <style type="text/css">
       body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
+
+        //background-color: #f5f5f5;
       }
 
       .form-signin {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
+        width: 100%;
+padding-top:25px;
+
+padding-right:10px;
+padding-left:0px;
         background-color: #fff;
-        border: 1px solid #e5e5e5;
+        //border: 1px solid #e5e5e5;
         -webkit-border-radius: 5px;
            -moz-border-radius: 5px;
                 border-radius: 5px;
@@ -58,14 +66,29 @@ echo $this->Html->script('bootstrap.min'); // Include jQuery library
       .form-signin .form-signin-heading,
       .form-signin .checkbox {
         margin-bottom: 10px;
+
+
       }
       .form-signin input[type="text"],
       .form-signin input[type="password"] {
         font-size: 16px;
         height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
+  width: 100%;
+  min-height: 28px;   
+
+
+
+
       }
+
+
+      // Block level inputs
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;        // Make inputs at least the height of their button counterpart
+  .box-sizing(border-box); // Makes inputs behave like true block-level elements
+}
 
     </style>
 
@@ -76,21 +99,7 @@ echo $this->Html->script('bootstrap.min'); // Include jQuery library
 
 
 
-     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="<?php echo $this->webroot;?>">Intercambio Internacional Móvil</a>
-          <div class="nav-collapse collapse">
 
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
 
 
 

@@ -21,11 +21,10 @@ $continentes = Configure::read('Continentes');
 
 
 <div class="container">
-</br>
       <div class="form-signin">
 <?php
-	echo $this->Form->input('carrera_id',array('empty'=>'----'));
-	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
+	echo $this->Form->input('carrera_id',array('empty'=>'----', 'class'=>'input-block-level'));
+	echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----', 'class'=>'input-block-level'));
 ?>
 
 <?php
@@ -44,12 +43,12 @@ $continentes = Configure::read('Continentes');
 <div id="paisajax" class="pais_content">
 	<?php
 
-		echo $this->Form->input('Page.pais_id',array('empty'=>'----'));
+		echo $this->Form->input('Page.pais_id',array('empty'=>'----', 'class'=>'input-block-level','label'=>'País'));
 	  ?>
  </div>
 
 
-        <button class="btn btn-large btn-primary" type="submit">Buscar</button>
+        <button class="btn btn-large btn-block btn-primary" type="submit">Buscar</button>
 		
 		
 <div style="color: gray;">
