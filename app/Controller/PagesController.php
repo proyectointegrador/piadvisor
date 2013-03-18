@@ -156,8 +156,11 @@ class PagesController extends AppController {
 			throw new NotFoundException(__('Invalid universidad'));
 		}
 		$this->Universidad->recursive = 2;
-		$options = array('conditions' => array('Universidad.' . $this->Universidad->primaryKey => $id));
-		$this->set('universidad', $this->Universidad->find('first', $options));
+		$options = array('conditions' => 
+							array('Universidad.' . $this->Universidad->primaryKey => $id));
+		$universidad = $this->Universidad->find('first', $options);
+		debug($universidad);
+		$this->set(compact('universidad'));
 		
 	}
 	/*
