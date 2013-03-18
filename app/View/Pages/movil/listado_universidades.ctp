@@ -14,6 +14,23 @@
 $continentes = Configure::read('Continentes');
 
 ?>
+
+<div class="container-fluid">  
+     <div class="accordion" id="accordion2">  
+          
+
+            <div class="accordion-group">  
+              <div class="accordion-heading">  
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#filter">  
+                 Redefinir búsqueda 
+                </a>  
+              </div>  
+              <div id="filter" class="accordion-body collapse">  
+                <div class="accordion-inner">  
+
+
+
+
 <div class="navbar">
 
   <div class="navbar-inner">
@@ -41,7 +58,7 @@ $continentes = Configure::read('Continentes');
 	 			?>
 	 		</div>
 	 		<div class="campo column">
-		  		<button id="Filtrar" class="btn" type="submit" style="text-align:right;">Filtrar</button>
+		  		<button id="Filtrar" class="btn btn-large btn-block btn-primary" type="submit">Filtrar</button>
 		  		<?php
 		  			$datos = $this->Js->get("#PageListadoUniversidadesForm")->serializeForm(array('isForm' => true, 'inline' => true));
 					$this->Js->get('#Filtrar')->event('click', $this->Js->request( 
@@ -61,6 +78,26 @@ $continentes = Configure::read('Continentes');
 	</div>
   </div>
 </div>
+
+
+
+
+
+
+
+                 
+                </div>  
+              </div>  
+            </div>  
+             
+
+            </div>  
+          </div>  
+    </div>
+
+
+
+
 
 
 <div id="listadoajax">
