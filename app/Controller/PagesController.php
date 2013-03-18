@@ -176,8 +176,14 @@ class PagesController extends AppController {
 
 				$continente_id = $this->request->data['Page']['continente_id'];
 				$this->Pais->recursive= -1;
-				$paises = $this->Pais->find('list',array(
-					'conditions'=>array('continente'=>$continentes[$continente_id])));
+				if($continente_id != ''){
+					$paises = $this->Pais->find('list',array(
+					'conditions'=>array('continente'=>$continentes[$continente_id])));	
+				}else{
+					$paises = $this->Pais->find('list');
+				}
+				
+				
 				$this->set(compact('paises'));
 				$this->render('paisajax', 'ajax');
 			}

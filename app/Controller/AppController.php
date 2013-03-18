@@ -21,7 +21,7 @@
  */
 
 App::uses('Controller', 'Controller');
-
+App::import('Vendor','Mobile_Detect'); 
 
 
 /**
@@ -36,9 +36,11 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
 	var $components = array('RequestHandler');
+    
 
 	function beforeFilter() {
-     if ($this->RequestHandler->isMobile()) {
+        $detect = new Mobile_Detect;
+     if ($detect->isMobile() && !$detect->isTablet()) {
         	$path = APP.'View/' . $this->name . DS . 'movil/' . $this->action . '.ctp';
         	if (file_exists($path)) {
         		$this->layout = 'movil';
