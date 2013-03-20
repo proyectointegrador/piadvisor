@@ -42,7 +42,7 @@
 
 
 <div class="related">
-	<h3><?php echo __('Requisitos'); ?></h3>
+	<h3><?php echo __('Consideraciones Importantes'); ?></h3>
 	<?php if (!empty($universidad['Requisito'])): ?>
 
 

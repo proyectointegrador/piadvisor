@@ -14,10 +14,6 @@
 $continentes = Configure::read('Continentes');
 
 ?>
-<div class="navbar">
-
-  <div class="navbar-inner">
-	 <div class="input-append" style="text-align:right;">
 	 	<?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
 	 	<div class="forma on-5 columns">
 	 		<div class="campo column" style="">
@@ -41,6 +37,10 @@ $continentes = Configure::read('Continentes');
 	 			?>
 	 		</div>
 	 		<div class="campo column">
+	 		
+	 		</br>
+	 		</br>
+
 		  		<button id="Filtrar" class="btn" type="submit" style="text-align:right;">Filtrar</button>
 		  		<?php
 		  			$datos = $this->Js->get("#PageListadoUniversidadesForm")->serializeForm(array('isForm' => true, 'inline' => true));
@@ -59,9 +59,6 @@ $continentes = Configure::read('Continentes');
 		  	</div>
 		</div>
 		<?php echo $this->Form->end();?>
-	</div>
-  </div>
-</div>
 
 
 <div id="listadoajax">
