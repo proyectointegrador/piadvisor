@@ -95,3 +95,33 @@
 	</table>
 <?php endif; ?>
 </div>
+
+<div class="related">
+  <h3><?php echo __('Areas'); ?></h3>
+  <?php if (!empty($areas)): 
+
+    foreach ($areas as $area) {
+  ?>
+    <h3><?php echo $area['Area']['name']; ?></h3>
+    <table cellpadding = "0" cellspacing = "0">
+    <tr>
+      <th><?php echo __('Carrera'); ?></th>
+      <th><?php echo __('Nombre'); ?></th>
+      <th><?php echo __('Area'); ?></th>
+    </tr>
+    <?php
+      $i = 0;
+      foreach ($area['Carrera'] as $carrera): ?>
+
+      <tr>
+        <td><?php echo $carrera['name']; ?></td>
+        <td><?php echo $carrera['name2']; ?></td>
+        <td><?php echo $carrera['Area']['name']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+    </table>
+
+<?php 
+    }
+    endif; ?>
+</div>

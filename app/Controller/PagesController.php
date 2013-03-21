@@ -124,12 +124,12 @@ class PagesController extends AppController {
 		
 			$this->Universidad->recursive = 0;
 			$universidades = $this->Universidad->find('all',array
-			('conditions'=>$condiciones,
-			'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
-			'joins' => $joins,
-			'group' => 'Universidad.id'
-				));
-				$this->set(compact('universidades'));
+				('conditions'=>$condiciones,
+				'fields'=>array('Universidad.codigo','Universidad.name','Universidad.idioma','Universidad.ciudad','Universidad.id'),
+				'joins' => $joins,
+				'group' => 'Universidad.id'
+					));
+			$this->set(compact('universidades'));
 
 			
 		}
@@ -159,8 +159,41 @@ class PagesController extends AppController {
 		$options = array('conditions' => 
 							array('Universidad.' . $this->Universidad->primaryKey => $id));
 		$universidad = $this->Universidad->find('first', $options);
-		debug($universidad);
-		$this->set(compact('universidad'));
+		//debug($universidad['Carrera']);
+
+		//Query de area
+		$joins = array ( 
+					array('table' => 'universidades_carreras',
+	                'alias' => 'universidadcarrera',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'universidadcarrera.carrera_id = Carrera.id',
+	                    'universidadcarrera.universidad_id' => $id
+	                )
+					)
+					);
+		$areas = $this->Universidad->Carrera->find('all',array
+				('fields'=>array('DISTINCT Area.id','Area.name'),
+				'joins' => $joins,
+				'group' => 'Area.id'
+					));
+
+		for ($i=0; $i < count($areas); $i++) {
+			$areas[$i]['Carrera'] = array();
+		}
+		$num_areas = count($areas);
+		$acomodado = false;
+		foreach ($universidad['Carrera'] as $carrera) {
+			for ($i=0; $i < $num_areas and !$acomodado; $i++) {	
+				if($carrera['area_id']== $areas[$i]['Area']['id']){
+					array_push($areas[$i]['Carrera'],$carrera);
+					$acomodado= true;
+				}
+			}
+			$acomodado = false;
+		}
+		debug($areas);
+		$this->set(compact('universidad','areas'));
 		
 	}
 	/*
