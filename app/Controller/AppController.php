@@ -35,7 +35,7 @@ App::import('Vendor','Mobile_Detect');
  */
 class AppController extends Controller {
 
-	var $components = array('RequestHandler');
+	var $components = array('RequestHandler','Session');
     
 
 	function beforeFilter() {

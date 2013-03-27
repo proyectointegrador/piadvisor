@@ -1,21 +1,31 @@
+<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para editar una Categoría.
+ */
+
+?>
 <div class="categorias form">
 <?php echo $this->Form->create('Categoria'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Categoria'); ?></legend>
+		<legend><?php echo __('Editar Categoria'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
+		echo $this->Form->input('name',array('label'=>'Nombre'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ligas'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Categoria.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Categoria.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Categorias'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Requisito'), array('controller' => 'requisitos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Categorias'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

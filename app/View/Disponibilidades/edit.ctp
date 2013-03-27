@@ -1,22 +1,32 @@
+<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para editar Disponibilidades.
+ */
+
+?>
 <div class="disponibilidades form">
 <?php echo $this->Form->create('Disponibilidad'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Disponibilidad'); ?></legend>
+		<legend><?php echo __('Editar Disponibilidad'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('name',array('label'=>'Nombre'));
+		echo $this->Form->input('descripcion',array('label'=>'Descripción'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ligas'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Disponibilidad.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Disponibilidad.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Disponibilidades'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Universidad'), array('controller' => 'universidades', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Disponibilidades'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -1,22 +1,34 @@
+<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para editar paises.
+ */
+
+$continentes = Configure::read('Continentes');
+
+?>
 <div class="paises form">
 <?php echo $this->Form->create('Pais'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Pais'); ?></legend>
+		<legend><?php echo __('Editar Pais'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('continente');
+		echo $this->Form->input('name', array('label'=>'Nombre'));
+		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ligas'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Listar Paises'), array('action' => 'index')); ?></li>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Pais.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Pais.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Paises'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Universidad'), array('controller' => 'universidades', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -1,20 +1,32 @@
+<?php
+/**
+ *Autores:
+ *  Edgar García Camarillo
+ *  Eugenio Rafael García García
+ *  Luis Galeana Peralta
+ *  Luis Eduardo Torres
+ *
+ * Descripción: Esta es la vista de administración
+ * 				para agregar demandas.
+ */
+
+?>
 <div class="demandas form">
 <?php echo $this->Form->create('Demanda'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Demanda'); ?></legend>
+		<legend><?php echo __('Agregar Demanda'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('descripcion');
+		echo $this->Form->input('name',array('label'=>'Nombre'));
+		echo $this->Form->input('descripcion',array('label'=>'Descripción'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ligas'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Demandas'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Universidad'), array('controller' => 'universidades', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Demandas'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
