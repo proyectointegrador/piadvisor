@@ -79,16 +79,31 @@
 
 <div class="related">
   <h3><?php echo __('Areas'); ?></h3>
-  <?php if (!empty($areas)): 
+     <div class="container-fluid">  
+     <div class="accordion" id="a3">  
+
+
+  <?php 
+$y=0;  
+
+  if (!empty($areas)): 
 
     foreach ($areas as $area) {
   ?>
-    <h3><?php echo $area['Area']['name']; ?></h3>
-    <table cellpadding = "0" cellspacing = "0">
+
+
+            <div class="accordion-group">  
+              <div class="accordion-heading">  
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#a3" href="#<?php echo $y; ?>">  
+                 <?php echo $area['Area']['name']; ?>  
+                </a>  
+              </div>
+<div id="<?php echo $y; ?>" class="accordion-body collapse">  
+                <div class="accordion-inner">  
+
+   <table cellpadding = "0" cellspacing = "0">
     <tr>
       <th><?php echo __('Carrera'); ?></th>
-      <th><?php echo __('Nombre'); ?></th>
-      <th><?php echo __('Area'); ?></th>
     </tr>
     <?php
       $i = 0;
@@ -96,33 +111,36 @@
 
       <tr>
         <td><?php echo $carrera['name']; ?></td>
-        <td><?php echo $carrera['name2']; ?></td>
-        <td><?php echo $carrera['Area']['name']; ?></td>
-      </tr>
-    <?php endforeach; ?>
-    </table>
+        </tr>
 
-<?php 
+    <?php endforeach; ?>
+              </table>
+
+</div>
+
+
+                </div>  
+              </div>
+
+
+
+
+
+
+
+
+ 
+
+<?php
+$y++;
+
     }
     endif; ?>
+
+            </div>  
+          </div>  
+
 </div>
 
 
 
-<div class="container">
-<h2>Example of creating Popover with Twitter Bootstrap with title and content options</h2>
-<div class="well">
-<a href="#" id="dos" class="btn btn-success" rel="popover">hover for popover</a>
-</div>
-</div>
-
-
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
-
-
-<script>
-$(function ()
-{ $("#dos").popover({title: 'Twitter Bootstrap Popover', content: "It's so simple to create a tooltop for my website!"});
-});
-</script>
