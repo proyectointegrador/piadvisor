@@ -31,6 +31,7 @@
        <?php echo __('Demanda'); ?>: &nbsp;<?php echo h($universidad['Demanda']['name']); ?>
      </br>
       <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
+      <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?></br>
 
  
 
@@ -74,27 +75,7 @@
 
 </div>
 
-<div class="related">
-	<h3><?php echo __('Carreras ofrecidas en la Universidad'); ?></h3>
-	<?php if (!empty($universidad['Carrera'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Carrera'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Area'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($universidad['Carrera'] as $carrera): ?>
-		<tr>
-			<td><?php echo $carrera['name']; ?></td>
-			<td><?php echo $carrera['name2']; ?></td>
-			<td><?php echo $carrera['Area']['name']; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-</div>
+
 
 <div class="related">
   <h3><?php echo __('Areas'); ?></h3>
@@ -125,3 +106,23 @@
     }
     endif; ?>
 </div>
+
+
+
+<div class="container">
+<h2>Example of creating Popover with Twitter Bootstrap with title and content options</h2>
+<div class="well">
+<a href="#" id="dos" class="btn btn-success" rel="popover">hover for popover</a>
+</div>
+</div>
+
+
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+
+
+<script>
+$(function ()
+{ $("#dos").popover({title: 'Twitter Bootstrap Popover', content: "It's so simple to create a tooltop for my website!"});
+});
+</script>
