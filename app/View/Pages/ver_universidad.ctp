@@ -31,6 +31,7 @@
        <?php echo __('Demanda'); ?>: &nbsp;<?php echo h($universidad['Demanda']['name']); ?>
      </br>
       <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
+      <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?></br>
 
  
 
@@ -74,40 +75,35 @@
 
 </div>
 
-<div class="related">
-	<h3><?php echo __('Carreras ofrecidas en la Universidad'); ?></h3>
-	<?php if (!empty($universidad['Carrera'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Carrera'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Area'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($universidad['Carrera'] as $carrera): ?>
-		<tr>
-			<td><?php echo $carrera['name']; ?></td>
-			<td><?php echo $carrera['name2']; ?></td>
-			<td><?php echo $carrera['Area']['name']; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-</div>
+
 
 <div class="related">
   <h3><?php echo __('Areas'); ?></h3>
-  <?php if (!empty($areas)): 
+     <div class="container-fluid">  
+     <div class="accordion" id="a3">  
+
+
+  <?php 
+$y=0;  
+
+  if (!empty($areas)): 
 
     foreach ($areas as $area) {
   ?>
-    <h3><?php echo $area['Area']['name']; ?></h3>
-    <table cellpadding = "0" cellspacing = "0">
+
+
+            <div class="accordion-group">  
+              <div class="accordion-heading">  
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#a3" href="#<?php echo $y; ?>">  
+                 <?php echo $area['Area']['name']; ?>  
+                </a>  
+              </div>
+<div id="<?php echo $y; ?>" class="accordion-body collapse">  
+                <div class="accordion-inner">  
+
+   <table cellpadding = "0" cellspacing = "0">
     <tr>
       <th><?php echo __('Carrera'); ?></th>
-      <th><?php echo __('Nombre'); ?></th>
-      <th><?php echo __('Area'); ?></th>
     </tr>
     <?php
       $i = 0;
@@ -115,13 +111,36 @@
 
       <tr>
         <td><?php echo $carrera['name']; ?></td>
-        <td><?php echo $carrera['name2']; ?></td>
-        <td><?php echo $carrera['Area']['name']; ?></td>
-      </tr>
-    <?php endforeach; ?>
-    </table>
+        </tr>
 
-<?php 
+    <?php endforeach; ?>
+              </table>
+
+</div>
+
+
+                </div>  
+              </div>
+
+
+
+
+
+
+
+
+ 
+
+<?php
+$y++;
+
     }
     endif; ?>
+
+            </div>  
+          </div>  
+
 </div>
+
+
+

@@ -117,16 +117,10 @@
 
    <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-<script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
 
 
-            $(function () {
 
-                $('#tooltip1').tooltip();
-            });
-
-
-</script>
 
 
 </body>
