@@ -20,3 +20,9 @@ div.pais_content{
 	text-align: left;
 	cursor: default;
 }	
+.iaminline{
+	float: left; 
+	display: inline;
+	clear:none;
+	width:60px;
+}

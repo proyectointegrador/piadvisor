@@ -13,7 +13,10 @@
 		echo $this->Form->input('website');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('pais_id');
-		echo $this->Form->input('Carrera');
+
+		debug($this->data);
+		echo $this->Form->input('Carrera',array('label'=>'Carreras','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
+
 		echo $this->Form->input('Requisito');
 	?>
 	</fieldset>

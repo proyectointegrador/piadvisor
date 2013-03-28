@@ -77,8 +77,8 @@ class PagesController extends AppController {
 	public function home() {
 		
 		$this->Carrera->recursive = 0;
-		$carreras = $this->Carrera->find('list');
-		$paises = $this->Pais->find('list');
+		$carreras = $this->Carrera->find('list',array('order'=>array('name ASC')));
+		$paises = $this->Pais->find('list',array('order'=>array('name ASC')));
 		$this->set(compact('carreras','paises'));
 		$this->set('title_for_layout', 'PIAdvisor');
 	}
@@ -136,8 +136,8 @@ class PagesController extends AppController {
 			
 		//Query de paises y carreras
 		$this->Carrera->recursive = 0;
-		$carreras = $this->Carrera->find('list');
-		$paises = $this->Pais->find('list');
+		$carreras = $this->Carrera->find('list',array('order'=>array('name ASC')));
+		$paises = $this->Pais->find('list',array('order'=>array('name ASC')));
 		$this->set(compact('carreras','paises'));
 		$this->set('title_for_layout', 'PIAdvisor');
 

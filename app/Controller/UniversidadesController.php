@@ -39,6 +39,8 @@ class UniversidadesController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+			debug($this->request->data);
+			exit();
 			$this->Universidad->create();
 			if ($this->Universidad->save($this->request->data)) {
 				$this->Session->setFlash(__('The universidad has been saved'));
@@ -51,7 +53,7 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
-		$carreras = $this->Universidad->Carrera->find('list');
+		$carreras = $this->Universidad->Carrera->find('list',array('order'=>array('name ASC')));
 		$requisitos = $this->Universidad->Requisito->find('list');
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
