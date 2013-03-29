@@ -69,7 +69,7 @@ class Universidad extends AppModel {
 			'joinTable' => 'universidades_carreras',
 			'foreignKey' => 'universidad_id',
 			'associationForeignKey' => 'carrera_id',
-			'unique' => 'keepExisting',
+			'unique' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
