@@ -16,6 +16,7 @@
     <div class="span2">
       <!--Sidebar content-->
       <?php
+        
         echo $this->Html->image('paises/'.$universidad['Pais']['bandera'], array('class'=>'img-rounded'));
       ?>
 

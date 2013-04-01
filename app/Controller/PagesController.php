@@ -192,7 +192,7 @@ class PagesController extends AppController {
 			}
 			$acomodado = false;
 		}
-		debug($areas);
+		
 		$this->set(compact('universidad','areas'));
 		
 	}
