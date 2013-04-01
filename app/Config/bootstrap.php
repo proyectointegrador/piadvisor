@@ -186,9 +186,10 @@ CakeLog::config('error', array(
 Configure::write(
     'Continentes',array (
 		'1' => 'África',
-		'2' => 'América',
-		'3' => 'Asia',
-		'4' => 'Europa',
-		'5' => 'Oceanía'
+		'2' => 'Asia',
+		'3' => 'Europa',
+		'4' => 'Norteamérica',
+		'5' => 'Oceanía',
+		'6' => 'Sudamérica'
 		)
 );
