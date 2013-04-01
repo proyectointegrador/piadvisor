@@ -14,6 +14,9 @@
 $continentes = Configure::read('Continentes');
 
 ?>
+
+
+
 	 	<?php echo $this->Form->create('Page',array('action'=>'listado_universidades')); ?>
 	 	<div class="forma on-5 columns">
 	 		<div class="campo column" style="">
@@ -38,8 +41,8 @@ $continentes = Configure::read('Continentes');
 	 		</div>
 	 		<div class="campo column">
 	 		
-	 		</br>
-	 		</br>
+	 		<br/>
+	 		<br/>
 
 		  		<button id="Filtrar" class="btn" type="submit" style="text-align:right;">Filtrar</button>
 		  		<?php

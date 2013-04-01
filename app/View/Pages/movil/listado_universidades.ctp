@@ -15,6 +15,10 @@ $continentes = Configure::read('Continentes');
 
 ?>
 
+
+
+<br/>
+
 <div class="container-fluid">  
      <div class="accordion" id="accordion2">  
           
@@ -91,18 +95,21 @@ $continentes = Configure::read('Continentes');
 			<th><?php echo _('Universidad'); ?></th>
 	</tr>
 	<?php foreach ($universidades as $universidad): ?>
+<a href="/es/recipes/view/6">
 	
+	<tr id ="<?php echo $universidad['Universidad']['id'];?>" onclick="goToDescription(this.id)">
 
-	<tr>
 		<td>
 
-			<?php echo h($universidad['Universidad']['codigo']); ?>&nbsp; <?php echo h($universidad['Universidad']['name']); ?> </br>
+			<?php echo h($universidad['Universidad']['codigo']); ?>&nbsp; <?php echo h($universidad['Universidad']['name']); ?> <br/>
 
-<?php echo _('Idioma'); ?>:&nbsp;<?php echo h($universidad['Universidad']['idioma']); ?></br>
+<?php echo _('Idioma'); ?>:&nbsp;<?php echo h($universidad['Universidad']['idioma']); ?><br/>
 
-<?php echo $this->Html->link(__('Ver Detalles'), array('action' => 'ver_universidad', $universidad['Universidad']['id'])); ?></br>
+
+
 
 	</tr>
+</a>
 <?php endforeach; ?>
 	</table>
 
@@ -111,3 +118,10 @@ $continentes = Configure::read('Continentes');
 <?php
   echo $this->Js->writeBuffer();
 ?>
+
+
+<script type="text/javascript">
+    function goToDescription(value){
+        window.location = "./ver_universidad/"+value;
+    }
+</script>

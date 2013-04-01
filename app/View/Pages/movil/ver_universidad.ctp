@@ -13,31 +13,30 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
       <!--Sidebar content-->
       <?php
         echo $this->Html->image('ES.jpg', array('class'=>'img-rounded'));
       ?>
+<br/>
+<br/>
 
-    </div>
-    <div class="span10">
       <!--Body content-->
-      <?php echo __('Codigo'); ?>: &nbsp;<?php echo h($universidad['Universidad']['codigo']); ?></br>
-      <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo h($universidad['Pais']['name']); ?></br>
-      <?php echo __('Requisitos de Idioma'); ?>: &nbsp;<?php echo h($universidad['Universidad']['idioma']); ?></br>
+      <?php echo __('Codigo'); ?>: &nbsp;<?php echo h($universidad['Universidad']['codigo']); ?><br/>
+      <?php echo __('Ubicación'); ?>: &nbsp;<?php echo h($universidad['Universidad']['ciudad']); ?>, &nbsp;<?php echo h($universidad['Pais']['name']); ?><br/>
+      <?php echo __('Requisitos de Idioma'); ?>: &nbsp;<?php echo h($universidad['Universidad']['idioma']); ?><br/>
 			
-      <?php echo __('Calendario'); ?>: &nbsp;<?php echo h($universidad['Universidad']['calendario']); ?></br>
-      <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo h($universidad['Disponibilidad']['name']); ?></br>
+      <?php echo __('Calendario'); ?>: &nbsp;<?php echo h($universidad['Universidad']['calendario']); ?><br/>
+      <?php echo __('Disponibilidad'); ?>: &nbsp;<?php echo h($universidad['Disponibilidad']['name']); ?><br/>
        <?php echo __('Demanda'); ?>: &nbsp;<?php echo h($universidad['Demanda']['name']); ?>
-     </br>
-      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?></br>
+     <br/>
+      <?php echo __('Website'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['website'],'http://'.$universidad['Universidad']['website']); ?><br/>
 
- 
+       <?php echo __('Más Información'); ?>: &nbsp;<?php echo $this->Html->link($universidad['Universidad']['codigo'],'http://mty116.mty.itesm.mx/temporal/pi/dyn/viewInfo.php?chUniCode='.$universidad['Universidad']['codigo']); ?><br/>
 
-    </div>
+
   </div>
 </div>
-</br>
+<br/>
 
 
 
@@ -74,24 +73,72 @@
 
 </div>
 
+
+
 <div class="related">
-	<h3><?php echo __('Carreras ofrecidas en la Universidad'); ?></h3>
-	<?php if (!empty($universidad['Carrera'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Carrera'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Area'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($universidad['Carrera'] as $carrera): ?>
-		<tr>
-			<td><?php echo $carrera['name']; ?></td>
-			<td><?php echo $carrera['name2']; ?></td>
-			<td><?php echo $carrera['Area']['name']; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+  <h3><?php echo __('Areas'); ?></h3>
+     <div class="container-fluid">  
+     <div class="accordion" id="a3">  
+
+
+  <?php 
+$y=0;  
+
+  if (!empty($areas)): 
+
+    foreach ($areas as $area) {
+  ?>
+
+
+            <div class="accordion-group">  
+              <div class="accordion-heading">  
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#a3" href="#<?php echo $y; ?>">  
+                 <?php echo $area['Area']['name']; ?>  
+                </a>  
+              </div>
+<div id="<?php echo $y; ?>" class="accordion-body collapse">  
+                <div class="accordion-inner">  
+
+   <table cellpadding = "0" cellspacing = "0">
+    <tr>
+      <th><?php echo __('Carrera'); ?></th>
+    </tr>
+    <?php
+      $i = 0;
+      foreach ($area['Carrera'] as $carrera): ?>
+
+      <tr>
+        <td><?php echo $carrera['name']; ?></td>
+        </tr>
+
+    <?php endforeach; ?>
+              </table>
+
 </div>
+
+
+                </div>  
+              </div>
+
+
+
+
+
+
+
+
+ 
+
+<?php
+$y++;
+
+    }
+    endif; ?>
+
+            </div>  
+          </div>  
+
+</div>
+
+
+
