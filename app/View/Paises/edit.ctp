@@ -20,6 +20,7 @@ $continentes = Configure::read('Continentes');
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name', array('label'=>'Nombre'));
+		echo $this->form->input('bandera');
 		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 	?>
 	</fieldset>

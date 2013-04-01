@@ -19,6 +19,7 @@ $continentes = Configure::read('Continentes');
 		<legend><?php echo __('Nuevo Pais'); ?></legend>
 	<?php
 		echo $this->Form->input('name',array('label'=>'Nombre'));
+		echo $this->form->input('bandera');
 		echo $this->Form->input('continente_id',array('options' => $continentes,'empty'=>'----'));
 	?>
 	</fieldset>
