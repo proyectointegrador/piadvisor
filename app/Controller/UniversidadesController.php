@@ -84,7 +84,10 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
-		$carreras = $this->Universidad->Carrera->find('list');
+		$carreras = $this->Universidad->Carrera->find('list',array(
+													'fields'=>array('id', 'name', 'area_id'),
+													'order'=>'area_id'));
+		debug($carreras);
 		$requisitos = $this->Universidad->Requisito->find('list');
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
