@@ -47,7 +47,7 @@ class AppController extends Controller {
         		$vistapath= $this->name . '/movil';
         		$this->viewPath = $vistapath;
         	}
-     }else if($this->action == 'Pages'){
+     }else if($this->name == 'Pages'){
         $this->layout = 'publico';
      }
 	}
