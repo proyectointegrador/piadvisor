@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar Disponibilidades.
@@ -27,7 +27,7 @@
 		<td><?php echo h($disponibilidad['Disponibilidad']['descripcion']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $disponibilidad['Disponibilidad']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $disponibilidad['Disponibilidad']['id']), null, __('Are you sure you want to delete # %s?', $disponibilidad['Disponibilidad']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $disponibilidad['Disponibilidad']['id']), null, __('Are you sure you want to delete # %s?', $disponibilidad['Disponibilidad']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

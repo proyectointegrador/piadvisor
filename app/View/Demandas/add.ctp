@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para agregar demandas.
@@ -23,10 +23,10 @@
 <?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Listar Demandas'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Demandas'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Lista Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar Categorias.
@@ -25,7 +25,7 @@
 		<td><?php echo h($categoria['Categoria']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $categoria['Categoria']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoria['Categoria']['id']), null, __('Are you sure you want to delete # %s?', $categoria['Categoria']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $categoria['Categoria']['id']), null, __('Are you sure you want to delete # %s?', $categoria['Categoria']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

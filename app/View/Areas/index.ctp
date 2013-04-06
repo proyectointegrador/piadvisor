@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar areas.
@@ -25,7 +25,7 @@
 		<td><?php echo h($area['Area']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $area['Area']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $area['Area']['id']), null, __('Are you sure you want to delete # %s?', $area['Area']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $area['Area']['id']), null, __('Are you sure you want to delete # %s?', $area['Area']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -45,9 +45,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Agergar Area'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Area'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Lista Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

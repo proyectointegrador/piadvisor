@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para agregar una Categoría.
@@ -14,7 +14,7 @@
 <div class="categorias form">
 <?php echo $this->Form->create('Categoria'); ?>
 	<fieldset>
-		<legend><?php echo __('Agregar Categoria'); ?></legend>
+		<legend><?php echo __('Nueva Categoria'); ?></legend>
 	<?php
 		echo $this->Form->input('name',array('label'=>'Nombre'));
 	?>
@@ -22,10 +22,10 @@
 <?php echo $this->Form->end(__('Enviar')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Listar Categorias'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Categorias'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Lista Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

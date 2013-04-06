@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar paises.
@@ -30,7 +30,7 @@
 		<td class="actions">
 			
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pais['Pais']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $pais['Pais']['id']), null, __('Are you sure you want to delete # %s?', $pais['Pais']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $pais['Pais']['id']), null, __('Are you sure you want to delete # %s?', $pais['Pais']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -50,9 +50,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Agregar Pais'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo País'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Lista Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
