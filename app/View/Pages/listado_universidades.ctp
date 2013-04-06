@@ -65,7 +65,7 @@ $continentes = Configure::read('Continentes');
 
 
 <div id="listadoajax">
-	<table class="table table-bordered" >
+	<table class="table table-striped" >
 	<tr>
 			<th><?php echo _('Codigo'); ?></th>
 			<th><?php echo _('Universidad'); ?></th>
