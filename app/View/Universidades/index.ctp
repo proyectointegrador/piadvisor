@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar Universidades.
@@ -22,7 +22,7 @@
 			<th><?php echo $this->Paginator->sort('calendario'); ?></th>
 			<th><?php echo $this->Paginator->sort('disponibilidad_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('demanda_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('website'); ?></th>
+			<th><?php echo $this->Paginator->sort('página web'); ?></th>
 			<th><?php echo $this->Paginator->sort('pais_id'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
@@ -46,7 +46,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $universidad['Universidad']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $universidad['Universidad']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $universidad['Universidad']['id']), null, __('Are you sure you want to delete # %s?', $universidad['Universidad']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $universidad['Universidad']['id']), null, __('Are you sure you want to delete # %s?', $universidad['Universidad']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -66,14 +66,14 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Universidad'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Disponibilidades'), array('controller' => 'disponibilidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Demandas'), array('controller' => 'demandas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Paises'), array('controller' => 'paises', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Disponibilidades'), array('controller' => 'disponibilidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Demandas'), array('controller' => 'demandas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Paises'), array('controller' => 'paises', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Requisitos'), array('controller' => 'requisitos', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

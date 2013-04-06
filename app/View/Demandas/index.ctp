@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar demandas.
@@ -27,7 +27,7 @@
 		<td><?php echo h($demanda['Demanda']['descripcion']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $demanda['Demanda']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $demanda['Demanda']['id']), null, __('Are you sure you want to delete # %s?', $demanda['Demanda']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $demanda['Demanda']['id']), null, __('Are you sure you want to delete # %s?', $demanda['Demanda']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -47,9 +47,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Demanda'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Universidades'), array('controller' => 'universidades', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

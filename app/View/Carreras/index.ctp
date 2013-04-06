@@ -4,7 +4,7 @@
  *  Edgar García Camarillo
  *  Eugenio Rafael García García
  *  Luis Galeana Peralta
- *  Luis Eduardo Torres
+ *  Luis Eduardo Torres 
  *
  * Descripción: Esta es la vista de administración
  * 				para listar carreras.
@@ -16,7 +16,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name','Siglas'); ?></th>
+			<th><?php echo $this->Paginator->sort('name','Carrera'); ?></th>
 			<th><?php echo $this->Paginator->sort('name2','Nombre'); ?></th>
 			<th><?php echo $this->Paginator->sort('area_id'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
@@ -31,7 +31,7 @@
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $carrera['Carrera']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $carrera['Carrera']['id']), null, __('Are you sure you want to delete # %s?', $carrera['Carrera']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $carrera['Carrera']['id']), null, __('Are you sure you want to delete # %s?', $carrera['Carrera']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -51,9 +51,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Ligas'); ?></h3>
+	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nueva Carrera'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Areas'), array('controller' => 'areas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Areas'), array('controller' => 'areas', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
