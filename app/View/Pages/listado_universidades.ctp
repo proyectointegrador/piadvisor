@@ -91,3 +91,7 @@ $continentes = Configure::read('Continentes');
 <?php
   echo $this->Js->writeBuffer();
 ?>
+
+<div style='background-color:#153458;height:100px;'>
+Programas Internacionales 2013
+</div>
