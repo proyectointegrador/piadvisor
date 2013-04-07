@@ -77,8 +77,57 @@ class PagesController extends AppController {
 	public function home() {
 		
 		$this->Carrera->recursive = 0;
-		$carreras = $this->Carrera->find('list',array('order'=>array('name ASC')));
-		$paises = $this->Pais->find('list',array('order'=>array('name ASC')));
+		/*$carreras = $this->Universidad->find('all',array(
+													'fields'=>array('Carrera.id','Carrera.name'),
+													'conditions' => array('Universidad.activo'=>true),
+													'order'=>array('Carrera.name ASC'),
+													'group'=>array('Carrera.id'),
+													'contain'=> array('Carrera')
+													));*/
+		$this->Universidad->unbindModel(array('belongsTo'=> array('Disponibilidad','Demanda','User','Pais'),
+										'hasAndBelongsToMany' => array('Requisito')));
+		$carreras = $this->Universidad->find('list',array(
+												'fields'=>array('Carrera.id','Carrera.name'),
+												'conditions' => array('Universidad.activo'=>true),
+												'joins' => array(
+														array(
+												            'table' => 'universidades_carreras',
+												            'alias' => 'universidadcarrera',
+												            'type' => 'INNER',
+												            'conditions' => array(
+												                'universidadcarrera.universidad_id = Universidad.id'
+												            )
+														),
+														array(
+												            'table' => 'carreras',
+												            'alias' => 'Carrera',
+												            'type' => 'INNER',
+												            'conditions' => array(
+												                'Carrera.id = universidadcarrera.carrera_id'
+												            )
+														)
+
+													),
+												'group'=>array('Carrera.id'),
+												'order'=>array('Carrera.name')
+												));
+		
+
+		$paises = $this->Pais->Universidad->find('list',array(
+														'fields' => array('Pais.id', 'Pais.name'),
+														'conditions'=>array('Universidad.activo'=>true),
+														'order'=>array('Pais.name ASC'),
+														'group'=>array('Universidad.pais_id'),
+														'recursive' => 0
+														));
+		/*$continentes = $this->Pais->find('list', array(
+													'fields' => array('Pais.continente'),
+													'order'=>array('Pais.continente ASC'),
+													'group'=>array('Pais.continente')
+													));*/
+
+
+		
 		$this->set(compact('carreras','paises'));
 		$this->set('title_for_layout', 'PIAdvisor');
 	}
