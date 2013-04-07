@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Nueva Universidad'); ?></legend>
 	<?php
+	    echo $this->Form->input('activo',array('type'=>'checkbox','checked'=>true));
 		echo $this->Form->input('codigo');
 		echo $this->Form->input('name',array('label' => 'Nombre'));
 		echo $this->Form->input('ciudad');

@@ -40,7 +40,6 @@ class UniversidadesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			debug($this->request->data);
-			exit();
 			$this->Universidad->create();
 			if ($this->Universidad->save($this->request->data)) {
 				$this->Session->setFlash(__('The universidad has been saved'));

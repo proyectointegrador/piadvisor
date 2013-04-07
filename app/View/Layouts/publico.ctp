@@ -27,7 +27,7 @@
     //Importaciónde Hojas de Estilo
 //		echo $this->Html->css('cake.generic');
     echo $this->Html->css('piadvisor');
-	  echo $this->Html->css('bootstrap.min');
+	  echo $this->Html->css('bootstrap');
     echo $this->Html->css('elastic');
 
     // <script src="js/bootstrap.min.js"></script>
@@ -44,8 +44,9 @@
       <style type="text/css">
       body {
         padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
+        padding-bottom: 15%;
+        background-image:url('img/back.gif');
+        background-repeat:repeat-x; 
       }
 
       .form-signin {
@@ -78,22 +79,14 @@
 
 
 </head>
-<body>
+<body class"body">
 
 
 
-     <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="<?php echo $this->webroot;?>">Intercambio Internacional</a>
-          <div class="nav-collapse collapse">
-
-          </div><!--/.nav-collapse -->
+          <a class="brand" href="<?php echo $this->webroot;?>">Programas Internacionales</a>
         </div>
       </div>
     </div>
@@ -118,10 +111,6 @@
    <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
 <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
-
-
-
-
 
 </body>
 </html>
