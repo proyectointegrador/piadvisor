@@ -52,8 +52,32 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
-		$carreras = $this->Universidad->Carrera->find('list',array('order'=>array('name ASC')));
-		$requisitos = $this->Universidad->Requisito->find('list');
+		$joins = array ( 
+					array('table' => 'areas',
+	                'alias' => 'Area',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'Carrera.area_id = Area.id'
+	                )
+					)
+					);
+		$carreras = $this->Universidad->Carrera->find('list',array(
+													'fields'=>array('id', 'name', 'Area.name'),
+													'joins' => $joins,
+													'order'=>'area_id'));
+		$joins = array ( 
+					array('table' => 'categorias',
+	                'alias' => 'Categoria',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'Requisito.categoria_id = Categoria.id'
+	                )
+					)
+					);
+		$requisitos = $this->Universidad->Requisito->find('list',array(
+													'fields'=>array('id', 'clave', 'Categoria.name'),
+													'joins' => $joins,
+													'order'=>'categoria_id'));
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
 
@@ -83,11 +107,33 @@ class UniversidadesController extends AppController {
 		$demandas = $this->Universidad->Demanda->find('list');
 		$users = $this->Universidad->User->find('list');
 		$paises = $this->Universidad->Pais->find('list');
+
+		$joins = array ( 
+					array('table' => 'areas',
+	                'alias' => 'Area',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'Carrera.area_id = Area.id'
+	                )
+					)
+					);
 		$carreras = $this->Universidad->Carrera->find('list',array(
-													'fields'=>array('id', 'name', 'area_id'),
+													'fields'=>array('id', 'name', 'Area.name'),
+													'joins' => $joins,
 													'order'=>'area_id'));
-		debug($carreras);
-		$requisitos = $this->Universidad->Requisito->find('list');
+		$joins = array ( 
+					array('table' => 'categorias',
+	                'alias' => 'Categoria',
+	                'type' => 'INNER',
+	                'conditions' => array(
+	                    'Requisito.categoria_id = Categoria.id'
+	                )
+					)
+					);
+		$requisitos = $this->Universidad->Requisito->find('list',array(
+													'fields'=>array('id', 'clave', 'Categoria.name'),
+													'joins' => $joins,
+													'order'=>'clave'));
 		$this->set(compact('disponibilidades', 'demandas', 'users', 'paises', 'carreras', 'requisitos'));
 	}
 

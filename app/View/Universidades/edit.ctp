@@ -16,10 +16,8 @@
 		echo $this->Form->input('pais_id');
 
 		
-		echo $this->Form->input('Carrera',array('label'=>'Carreras','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
-
-		
-		echo $this->Form->input('Requisito');
+		echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','multiple'=>'checkbox','class'=>'iaminline'));
+		echo $this->Form->input('Requisito',array('label'=>'Requisitos Relacionados','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar')); ?>

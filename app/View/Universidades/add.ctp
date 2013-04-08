@@ -16,9 +16,10 @@
 
 		
 			
-		echo $this->Form->input('Carrera',array('label'=>'Carreras','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
+		echo $this->Form->input('Carrera',array('label'=>'Carreras Relacionadas','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
+
+		echo $this->Form->input('Requisito',array('label'=>'Requisitos Relacionados','type'=>'checkbox','multiple'=>'checkbox','style' => '','class'=>'iaminline'));
 		
-		echo $this->Form->input('Requisito');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar')); ?>
